@@ -13,9 +13,12 @@ import java.util.Scanner;
 public class Lab04Calculadora {
 
     public static Scanner leer;
+    public static Calculadora calculadora;
+    public static PalabraRecursiva palabraRecursiva = new PalabraRecursiva();
     
     public static void main(String[] args) {
         leer = new Scanner(System.in);
+        calculadora = new Calculadora();
         MostrarMenu();
     }
     
@@ -27,7 +30,9 @@ public class Lab04Calculadora {
             System.out.println("2.........Resta dos numeros");
             System.out.println("3.........Multiplicacion de dos numeros");
             System.out.println("4.........Division de dos numeros");
-            System.out.println("5.........Salir");
+            System.out.println("5.........Calcular el resto de una division de dos numeros");
+            System.out.println("6.........Verificar si una palabra es palindrome");
+            System.out.println("7.........Salir");
             int opcion = ObtenerOpcion();
             seguir = EjecutarOpcion(opcion);
         }
@@ -46,7 +51,7 @@ public class Lab04Calculadora {
             {
                 continuar = false;
                 opcion = leer.nextInt();
-                while (opcion < 1 || opcion > 5)
+                while (opcion < 1 || opcion > 7)
                 {
                     System.out.println("ERROR: ingrese una opcion valida");
                     opcion = leer.nextInt();
@@ -65,7 +70,6 @@ public class Lab04Calculadora {
     //Metodo para ejecutar las opciones, se retorna un verdadero o falso para continuar el programa.
     public static boolean EjecutarOpcion(int opcion)
     {
-        Calculadora calculadora = new Calculadora();
         boolean continuar = true;
         switch (opcion)
         {
@@ -82,6 +86,12 @@ public class Lab04Calculadora {
                 System.out.println("LA DIVISION DE LOS NUMEROS ES: " + calculadora.Division());
                 break;
             case 5:
+                System.out.println("EL RESTO DE LA DIVISION DE LOS NUMEROS ES: " + calculadora.Resto());
+                break;
+            case 6:
+                palabraRecursiva.RevisarPalabra();
+                break;
+            case 7:
                 System.out.println("Saliendo del programa...");
                 continuar = false;
                 break;

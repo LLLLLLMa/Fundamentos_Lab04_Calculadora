@@ -110,6 +110,25 @@ public class Calculadora {
         return (float) this.num1 / (float) this.num2;
     }
     
+    public int Resto()
+    {
+        // Se pide el numero con un valor minimo de 0 para que sea un entero positivo.
+        System.out.println("Ingrese el primer numero");
+        this.num1 = GenerarNumeroValido(0);
+        
+        // Se valida que ambos numeros no sean iguales con un valor minimo de 1
+        // ya que no se puede dividir por 0.
+        System.out.println("Ingrese el segundo numero");
+        this.num2 = GenerarNumeroValido(1);
+        
+        // Se valida que ambos numeros no sean iguales con un valor minimo de 1
+        // ya que no se puede dividir por 0.
+        this.ValidarIguales(1);
+        
+        //Se retorna la operacion solicitada
+        return this.num1 % this.num2;
+    }
+    
     private void ValidarIguales(int min)
     {
         while (this.num1 == this.num2)
